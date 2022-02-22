@@ -33,6 +33,7 @@
             <taskproperty id="tpd8" name="coordinator" type="default" valuetype="text"/>
             <taskproperty id="tpd9" name="predecessorsr" type="default" valuetype="text"/>
         </taskproperties>
+        <task id="0" name="Note d'organisation" color="#8cb6ce" meeting="false" start="2022-02-22" duration="1" complete="0" thirdDate="2022-02-22" thirdDate-constraint="0" expand="true"/>
     </tasks>
     <resources/>
     <allocations/>
