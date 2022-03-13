@@ -1,0 +1,94 @@
+html
+{
+  width:auto;
+  height:auto;
+}
+
+/*Header*/
+header
+{
+	width : 100%;
+}
+img {
+	height: 200px;
+	width : 500px;
+  margin-left: 650px;
+}
+#searchbar{
+    margin-left: 88%;
+    padding:15px;
+    border-radius: 10px;
+}   
+#info{
+	position : absolute;
+	top : 50px;
+	left : 90%;
+	color : white;
+}
+/*Body*/
+body h1
+{
+	text-align : center;
+}
+body
+{
+	width : auto;
+	height : auto;
+	background : linear-gradient(blue, white);
+}
+
+table, tr, td{
+
+	padding:25px;
+	border: 2px solid black;
+	color : black;  
+
+}
+table {
+  border-collapse: collapse;
+  padding-left : 50px;
+  background-color : white;
+  
+}
+
+tbody{
+	display : block;
+	height: 500px;
+	overflow-y : auto;
+}
+
+
+thead, tbody{
+	display : block;
+
+}
+
+th{
+	padding : 42.2px;
+
+}
+td{
+	width : 115px;
+}
+
+#pos
+{
+	margin-left: 700px;
+}
+#pos2
+{
+	margin-left: 10px;
+}
+#pos3
+{
+	margin-left: 10px;
+}
+#pos4
+{
+	margin-left: 10px;
+}
+#pos5
+{
+	margin-left: 10px;
+}
+
