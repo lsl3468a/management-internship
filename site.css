@@ -25,6 +25,9 @@ img {
 	left : 90%;
 	color : white;
 }
+#bouton {
+	padding-left : 750px;
+}
 /*Body*/
 body h1
 {
