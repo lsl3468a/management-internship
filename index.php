@@ -72,7 +72,7 @@ $servername = "localhost";
 <div>
 	<table align="center">
 			<thead>
-				<tr id="tete">
+				<tr>
 					<th>Numéro stage</th>
 					<th>Type</th>
 					<th>Sujet</th>
@@ -95,7 +95,7 @@ $servername = "localhost";
 
 
 
-					 <tr id="stage">
+					 <tr>
 								<td><?php echo $row['id_stage']?></td>
 								<td><?php echo $row['sujet']?></td>
 								
