@@ -31,7 +31,7 @@ $servername = "localhost";
             Trouve un Stage
 			<?php
 				date_default_timezone_set("America/Guadeloupe");
-				echo " " . date("d-m-j");
+				echo " " . date("d-m-y");
 			?> 
         </title>
         <link rel='stylesheet' type='text/css' href='site.css'>
@@ -46,11 +46,13 @@ $servername = "localhost";
 			</figure>
 			<input id="searchbar" onkeyup="search_stage()" type="text"
 			name="search" placeholder="Trouver un stage...">
-			<button type="button" onclick="alert('Vous avez étez déconnecter!')" <?php //session_destroy;?> >Déconnexion</button>
-			 <button type="button" onclick="window.location.href = 'http://localhost/Backend/Connexion.php';">Connexion</button>
-			 <button type="button" onclick="window.location.href = 'http://localhost/Backend/Inscription.php';">Inscription</button>
-			 <button type="button" onclick="window.location.href = 'http://localhost/Backend/a_propos';">A propos</button>
-			 <button type="button" onclick="window.location.href = 'http://localhost/Backend/Etudiant.php';">test_co</button>
+			<div id="bouton">
+			<button  type="button" onclick="alert('Vous avez étez déconnecter!')" <?php //session_destroy;?> >Déconnexion</button>
+			 <button  type="button" onclick="window.location.href = 'http://localhost/Site_Stage/Connexion.php';">Connexion</button>
+			 <button type="button" onclick="window.location.href = 'http://localhost/Site_Stage/Inscription.php';">Inscription</button>
+			 <button  type="button" onclick="window.location.href = 'http://localhost/Backend/a_propos';">A propos</button>
+			 <button type="button" onclick="window.location.href = 'http://localhost/Site_Stage/Etudiant.php';">test_co</button>
+			 </div>
 			 <div id="info"><?php
 			 echo "<br/>";
 			 echo 'Nom: ' .$_SESSION['nom']. '<br>';
