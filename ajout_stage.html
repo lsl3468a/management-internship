@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head> <title> Candidature </title> <meta charset="UTF-8">
+	</head>
+	<body>
+		<form method="POST" action="ajout_stage.php">
+			<h2>Ajout d'une annonce: </h2>
+			<label for="type">Type du contrat :</label>
+			<select name="type" id="type">
+			    <option value="">Choisir le type :</option>
+			    <option value="stage">Stage classique</option>
+			    <option value="alternance">Contrat alternance</option>
+			    <option value="recherche">Contrat de recherche</option>
+			    <option value="apprentissage">Apprentissage</option>
+			</select>
+			<br>
+			<label for="sujet"> Sujet du stage : </label>
+			<input type="text" name="sujet"/> <br>
+			<textarea rows = "5" cols = "40" name = "contenu">Entrez le contenu du stage ici...</textarea><br>
+         	<label for="pref"> Préférences étudiant : </label>
+			<input type="text" name="pref"/> <br>
+			<label for="date_debut">Date début : </label>
+			<input id="date_debut" name="date_debut" type="date"> <br>
+			<label for="date_fin">Date fin : </label>
+			<input id="date_fin" name="date_fin" type="date"> <br>
+			<label for="date_supp">Date suppression : </label>
+			<input id="date_supp" name="date_supp" type="date"> <br>
+			<textarea rows="5" cols="40" name="methode">Méthode de candidature...</textarea><br>
+			<input type="submit" value="Ajouter" />
+		</form>
+	</body>
+</html>

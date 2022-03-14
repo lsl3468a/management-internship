@@ -8,6 +8,7 @@
 	//TO DO : modifier les variables
 	$_SESSION["num_etudiant"]="21240215";
 	$_POST["idstage"]=1;
+	
 	var_dump($_FILES);
 	$pathLM = 'files/LM_'.$_SESSION['num_etudiant'].'_'.$_POST['idstage'].$file_nameLM;
 	$pathCV = 'files/CV_'.$_SESSION['num_etudiant'].'_'.$_POST['idstage'].$file_nameCV;
