@@ -14,12 +14,12 @@
 	$pathCV = 'files/CV_'.$_SESSION['num_etudiant'].'_'.$_POST['idstage'].$file_nameCV;
 	if($_FILES['CV']==NULL || $_FILES['LM']==NULL){
 		echo "Veuillez entrer un fichier !";
-		include("candidature.php");
+		include("candidature.html");
 		return;
 	}
 	if(($_FILES['CV']['type']!="application/pdf") || ($_FILES['LM']['type']!="application/pdf")){
 		echo "Le fichier doit être au format pdf !";
-		include("candidature.php");
+		include("candidature.html");
 		return;
 	}
 	
@@ -27,7 +27,7 @@
 	
 	} else {
 		echo "Problème de téléchargement du fichier !";
-		include("candidature.php");
+		include("candidature.html");
 		return;
 	}
 	
@@ -36,7 +36,7 @@
 		
 	} else {
 		echo "Problème de téléchargement du fichier !";
-		include("candidature.php");
+		include("candidature.html");
 		return;
 	}
 	
@@ -54,6 +54,6 @@
 
 	$req->execute(array($_POST["idstage"], $_SESSION['num_etudiant'], $pathCV, $pathLM, $_POST["commentaires"]));
 	echo "Votre candidature a bien été envoyée !";
-	include("accueil.php");
+	include("accueil.html");
 	return;
 ?>

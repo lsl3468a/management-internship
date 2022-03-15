@@ -14,9 +14,6 @@ session_start();
 	{
     die("Echec de connexion a la BDD: " . mysqli_connect_error());
 	}
-	
-	echo "Conexion établie ";
-	echo "<br/>";
 ?>	
 
 <!DOCTYPE html>
@@ -39,19 +36,23 @@ echo " " . date("d-m-j");
 <body>
     <h1> Test backend </h1> </br>
     <h2>Page test <h2/>
-	<?php
-	 $_SESSION['prenom'] = 'Pierre';
-    $_SESSION['nom'] = 'jack';
-	$_SESSION['id_etudiant'] =223369;
-	?>
-	
-	
+		<?php
+			$_SESSION['prenom'] = 'Pierre';
+		  $_SESSION['nom'] = 'jack';
+			$_SESSION['id_etudiant'] =223369;
+		?>
     
-     <button type="button" onclick="alert('Vous avez étez déconnecter!')" <?php //session_destroy;?> >Déconnexion</button>
-     <button type="button" onclick="window.location.href = 'http://localhost/Backend/connexion';">Connexion</button>
-     <button type="button" onclick="window.location.href = 'http://localhost/Backend/inscription';">Inscription</button>
-	 <button type="button" onclick="window.location.href = 'http://localhost/Backend/a_propos';">A propos</button>
-	  <button type="button" onclick="window.location.href = 'http://localhost/Backend/acceuil.php';">test_deco</button>
+     <ul class="menu">
+			    <li>
+			        <a href="etudiant.php">Accueil</a>
+			    </li>
+			    <li>
+			        <a href="affichage_candidature.php">Mes candidatures</a>
+			    </li>
+			    <li>
+			        <a href="deconnexion.php">Déconnexion</a>
+			    </li>
+			</ul>
    
    <?php
      $req="SELECT * FROM stage";
@@ -66,14 +67,19 @@ echo " " . date("d-m-j");
 		?>
 		<table>
 		 <tr>
-                    <td><?php echo $row['id_stage']?></td>
-                    <td><?php echo $row['sujet']?></td>
+          <td><?php echo $row['id_stage']?></td>
+          <td><?php echo $row['sujet']?></td>
 					<td><?php echo $row['contenu']?></td>
 					<td><?php echo $row['type']?></td>
 					<td><?php echo $row['pref_etu']?></td>
-				    <td><?php echo $row['date_debut']?></td>
+				  <td><?php echo $row['date_debut']?></td>
 					<td><?php echo $row['date_fin']?></td>
 					<td><?php echo $row['methode_cand']?></td>
+					<td><form method="POST" action="candidature.html">
+								<input type="hidden" name="id_stage" value="<?php echo $row['id_stage']?>;"/>
+								<input type="submit" value="Candidater"/>
+							</form>
+					</td>
           </tr>
 		  <table>
 		<?php
