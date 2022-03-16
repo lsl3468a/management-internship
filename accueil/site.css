@@ -1,0 +1,99 @@
+/*html*/
+html{
+	height : auto;
+	width : auto;
+}
+
+/*Header*/
+header
+{
+	width : auto;
+	height : 80px;
+	background : linear-gradient(to right, #6286f0, #0331b8);
+	position: relative;
+	margin : 0px auto;
+}
+
+#logo{
+	position : absolute;
+	width :20%;
+	margin-left : 40%;
+	height : 145%;
+}
+#co{
+	left : 91%;
+	margin-top : 3%;
+	position : absolute;
+	
+}
+
+#insc{
+	position : absolute;
+	left : 95%;
+	margin-top : 3%;
+}
+#about{
+	position : absolute;
+	margin-left: 5%;
+	margin-top : 3%;
+	
+}
+/*Body*/
+#univ{
+	width : 4%;
+	height : 100%;
+	position: absolute;
+	margin-left : 1%;
+}
+body h1
+{
+	text-align : center;
+}
+body
+{
+	background-color : white;
+	height : 100%;
+	width : 100%;
+}
+
+table, tr, td{
+
+	padding:25px;
+	border: 2px solid black;
+	color : black; 
+	width : 1800px;
+	
+
+}
+table {
+  border-collapse: collapse;
+  padding-left : 50px;
+  background-color : white;
+  
+}
+
+tbody{
+	display : block;
+	height: 500px;
+	overflow-y : auto;
+}
+
+
+thead, tbody{
+	display : block;
+
+}
+
+th{
+	padding : 50px;
+	width : 800px;
+
+}
+td{
+	width : 1000px;
+}
+
+h1{
+	font-style : italic;
+}
+
