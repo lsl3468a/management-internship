@@ -49,7 +49,7 @@ echo " " . date("d-m-j");
     
      <button type="button" onclick="alert('Vous avez étez déconnecter!')" <?php //session_destroy;?> >Deco_admin</button>
 	  <button type="button" onclick="window.location.href = 'http://localhost/Backend_A/admin_Annonce.php';">Annonce</button>
-	  <button type="button" onclick="window.location.href = 'http://localhost/Backend_A/admin_Entreprise.php';">Entreprise</button>
+	  <a href="admin_Entreprise.php"><button type="button">Entreprise</button></a>
     
    
    <?php
