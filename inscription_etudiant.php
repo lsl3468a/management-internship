@@ -48,7 +48,7 @@
           <input type="password" name="mdp_etudiant" class="form-control" placeholder="Mot de passe" required="required" autocomplete="off">
        </div>
        <div class="form-group">
-          <input type="password" name="retype_mdp" class="form-control" placeholder="Confirmez le mot de passe" required="required" autocomplete="off">
+          <input type="password" name="retape_mdp" class="form-control" placeholder="Confirmez le mot de passe" required="required" autocomplete="off">
        </div>
        <div class="form-group">
           <div class="position-relative w-100">
@@ -78,10 +78,26 @@
                                     <?php
                                     break;
 
-                                    case 'mdp_etudiant':
+                                    case 'nom_etudiant_length':
                                     ?>
                                         <div class="alert alert-danger">
-                                            <strong>Erreur</strong> mot de passe différent
+                                            <strong>Erreur</strong> nom trop long
+                                        </div>
+                                    <?php
+                                    break;
+
+                                    case 'prenom_etudiant_length':
+                                    ?>
+                                        <div class="alert alert-danger">
+                                             <strong>Erreur</strong> prénom trop long
+                                        </div>
+                                    <?php
+                                    break;
+
+                                    case 'num_etudiant_length':
+                                    ?>
+                                        <div class="alert alert-danger">
+                                             <strong>Erreur</strong> numéro étudiant incorrecte
                                         </div>
                                     <?php
                                     break;
@@ -102,32 +118,18 @@
                                     <?php
                                     break;
 
-                                    case 'num_etudiant_length':
-                                    ?>
-                                    <div class="alert alert-danger">
-                                      <strong>Erreur</strong> Numéro incorrecte
-                                    </div>
-                                    <?php
-                                    break;
-
-                                    case 'prenom_etudiant_length':
+                                    case 'mdp_etudiant':
                                     ?>
                                         <div class="alert alert-danger">
-                                             <strong>Erreur</strong> prénom trop long
+                                            <strong>Erreur</strong> mot de passe différent
                                         </div>
                                     <?php
                                     break;
 
-                                    case 'nom_etudiant_length':
-                                    ?>
-                                        <div class="alert alert-danger">
-                                            <strong>Erreur</strong> nom trop long
-                                        </div>
-                                    <?php
                                     case 'already':
                                     ?>
                                         <div class="alert alert-danger">
-                                            <strong>Erreur</strong> compte deja existant
+                                            <strong>Erreur</strong> compte déja existant
                                         </div>
                                     <?php
 
