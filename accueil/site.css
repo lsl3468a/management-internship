@@ -11,7 +11,8 @@ header
 	height : 80px;
 	background : linear-gradient(to right, #6286f0, #0331b8);
 	position: relative;
-	margin : 0px auto;
+	margin : 0;
+	padding : 0;
 }
 
 #logo{
@@ -51,9 +52,10 @@ body h1
 }
 body
 {
+	margin :0;
+	padding : 0;
 	background-color : white;
-	height : 100%;
-	width : 100%;
+
 }
 
 table, tr, td{
