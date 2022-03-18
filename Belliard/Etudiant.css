@@ -1,0 +1,75 @@
+html
+{
+  width:auto;
+  height:auto;
+}
+
+/*Header*/
+header
+{
+	width : 100%;
+}
+img {
+	height: 5%;
+	width : 20%;
+  	margin-left: 40%;
+} 
+/*Body*/
+body h1
+{
+	text-align : center;
+}
+body
+{
+	width : auto;
+	height : auto;
+	background : linear-gradient(blue, white);
+}
+
+table
+{
+	height: 100%;
+	width: 70%;
+	padding:25%;
+	border: 2px solid black;
+	color : black; 
+	padding-left : 10%; 
+	border-collapse: collapse;
+	background-color : white;
+}
+
+tr
+{
+	padding:25%;
+	border: 2px solid black;
+	color : black; 
+}
+
+td
+{
+	padding: 2%;
+	border: 2px solid black;
+	color : black;
+	width : 8%;
+}
+
+tbody{
+	display : block;
+	height: 600px;
+	overflow-y : auto;
+}
+
+
+thead, tbody{
+	display : block;
+
+}
+
+th{
+	padding : 1%;
+	width: 7%;
+
+}
+
+
+
