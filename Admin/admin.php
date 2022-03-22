@@ -65,7 +65,21 @@ echo " " . date("d-m-j");
      echo 'Prenom :' .$_SESSION['prenom']. '<br>';
      ?>
     
-
+	<div>
+			<table align="center">
+					<thead>
+						<tr>
+							<th>Numéro stage</th>
+							<th>Sujet</th>
+							<th>Contenue</th>
+							<th>Type</th>
+							<th>Préférence étudiant</th>
+							<th>Date de début</th>
+							<th>Date de fin</th>
+							<th>Méthode de candidature</th>
+						</tr>
+					</thead>
+					<tbody>
    <?php
      $req="SELECT * FROM stage";
 	 $result = $conn->query($req);
@@ -109,10 +123,14 @@ echo " " . date("d-m-j");
    
     ?>
 	
-
+					</tbody>
+			</table>
+		</div>
+		
 	
 	
 	
     
 
 </body>
+</html>
