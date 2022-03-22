@@ -1,28 +1,4 @@
-.menu {
-    display: flex;        
-    padding:0; 
-    justify-content: center               
-}
-.menu li {
-    list-style-type: none ;       /* Suppression des puces */
-}
-.menu a {
-    display:block;                /* Transformation en block */
-    min-width: 120px;             /* Largeur minimale des liens */
-    margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
-    padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
-    text-align: center;           /* Centrage du texte */   
-    background-color: blue;    /* Couleur d'arrière-plan */
-    color: #fff;                  /* Couleur du texte */
-    text-decoration: none;        /* Suppression du soulignement */
-    border: 1px solid #fff;       /* Ajout d'une bordure */
-    border-radius: 4px;  
-}
-.menu a:hover {
-  background-color: white;
-  color: black;
-  border-color: black;
-}
+
 
 /*header*/
 header
@@ -38,7 +14,13 @@ header
 	position : absolute;
 	width :20%;
 	margin-left : 40%;
-	height : 145%;
+	height : 100%;
+}
+#univ{/*logo université des antilles*/
+	width : 3%;
+	height : 100%;
+	position: absolute;
+	margin-left : 1%;
 }
 
 /*body*/
@@ -47,12 +29,7 @@ body {
 	margin : 0;
   background-color: white;
 }
-#univ{
-	width : 4%;
-	height : 100%;
-	position: absolute;
-	margin-left : 1%;
-}
+
 h1 {
   color: black;
   text-align: center;
@@ -66,14 +43,54 @@ h3 {
   color: black;
    
 }
-table, tr, td {
 
-	padding:25px;
-  border: 1px solid green;
-  color:black;
-  
+table
+{/*Tableau déroulant*/
+	height: 100%;
+	width: 70%;
+	border: 2px solid black;
+	color : black; 
+	padding-left : 10%; 
+	border-collapse: collapse;
+	background-color :  #fafaf9;
+
 }
-table {
-  border-collapse: collapse;
-  
+
+div {
+	padding-top : 5%;
 }
+
+
+tr
+{
+	padding:25%;
+	border: 2px solid black;
+	color : black; 
+}
+
+td
+{
+	padding: 2%;
+	border: 2px solid black;
+	color : black;
+	width : 8%;
+}
+
+tbody{
+	display : block;
+	height: 490px;
+	overflow-y : auto;
+}
+
+
+thead, tbody{
+	display : block;
+
+}
+
+th{
+	padding : 1%;
+	width: 7%;
+
+}
+/*fin tableau déroulant*/
