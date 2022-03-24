@@ -25,12 +25,12 @@ session_start();
 			Candidature 
 		</title>
 		<link rel='stylesheet' type='text/css' href='candidature.css'>
-		<img id="univ" src = "Logo.jpg">
+		<img id="univ" src = "univ.png">
 	</head>
 	<body>
 		<header>
 			<figure>
-			<img id="site" src = "Stage-Water-Logo.png">
+			<img id="site" src = "candidater.png">
 			</figure>
 		</header>
 
