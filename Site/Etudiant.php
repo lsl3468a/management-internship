@@ -38,7 +38,7 @@ session_start();
 		<header>
 				<a href="index.php"><img id="univ" src= "univ.png"></a>
 				<img src = "Stage-Water-Logo.png">			
-		<a href="index.php"<button id="deco">Déconnexion</button></a>
+				<a href="index.php"><button id="deco">Déconnexion</button></a>
 		</header>
 <h2 align="center"> Voici la liste des stages disponible à la date du :  <?php echo " " . date("d-m-y"); ?></h2>
 <div>
