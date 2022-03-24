@@ -1,0 +1,62 @@
+/*html*/
+html{
+	height : auto;
+	width : auto;
+	margin : 0;
+	padding : 0;
+}
+
+/*Header*/
+header
+{
+	background :  #0331b8;
+	position: relative;
+	margin : 0;
+	padding : 0;
+	min-height : 45px;
+}
+
+#logo/*icone candidater*/
+{
+	position : absolute;
+	width :20%;
+	margin-left : 40%;
+	height : 125%;
+}
+
+#univ/*icone universite*/
+{
+    width : 3%;
+    height : 100%;
+    position: absolute;
+    margin-left : 1%;
+}
+
+body
+{
+    margin : 0;
+	padding : 0;
+	background-color: #fdf5e7;
+}
+
+#etu
+{
+    padding: 75px;
+    margin-left: 33%;
+    font-size: 28px;
+    margin-top: 20%;
+    background-color: #fafaf9;
+    border: solid 2px;
+    border-radius: 3%;
+}
+
+#ent
+{
+    padding: 75px;
+    margin-left: 10%;
+    font-size: 28px;
+    margin-top: 20%;
+    background-color: #fafaf9;
+    border: solid 2px;
+    border-radius: 3%;
+}
