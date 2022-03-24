@@ -41,7 +41,7 @@ $servername = "localhost";
 			<img id="logo" src="Stage-Water-Logo.png">
 			
 			 <a href="Etudiant.php"><button id="co">Connexion</button></a>
-			 <a href="inscription_etudiant.php"><button id="insc">Inscription</button></a>
+			 <a href="inscription_tmp.php"><button id="insc">Inscription</button></a>
 		</header>
 
 		<?php
