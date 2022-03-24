@@ -20,6 +20,10 @@ figure
     margin-left: 65%;
 }
 
+body{
+    background : #fdf5e7;
+}
+
 #pos
 {
     position: absolute;
