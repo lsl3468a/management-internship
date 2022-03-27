@@ -6,100 +6,99 @@
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password,$dbname);
+
 	// Check connection
 	if (!$conn) 
 	{
-    	die("Echec de connexion a la BDD: " . mysqli_connect_error());
+    die("Echec de connexion a la BDD: " . mysqli_connect_error());
 	}
 	
-	if(!isset($_SESSION)){
-		$_SESSION["num_etudiant"]=$_COOKIE["num_etudiant"];
-	}
 ?>	
+
 <!DOCTYPE html>
+
 <html>
-	<head>
-	<meta charset="utf-8">
-		<title>
-			Magic Web
-		<?php
-			date_default_timezone_set("America/Guadeloupe");
-			echo " " . date("d-m-j");
-			$date = date("y-m-d");
-		?>  
-		</title>
-        <link rel='stylesheet' type='text/css' href='site.css'>
-        <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-	</head>
-	<body>
+<head>
+
+<title>
+Magic Web
+<?php
+date_default_timezone_set("America/Guadeloupe");
+echo " " . date("d-m-y");
+if(!isset($_SESSION)){
+	$_SESSION['num_etudiant']=$_COOKIE["num_etudiant"];
+}
+
+?>  
+</title>
+<?php
+	 echo '<link rel="stylesheet" href="site.css">';
+	
+	?>
+</head>
+<body>
 		<header>
 			<ul>
 				<li><a href="etudiant.php"><img id="univ" src= "univ.png"></a></li>
 				<li><a id="nav" href="etudiant.php">Accueil</a></li>
 				<li><a id="nav" href="candidature_etudiant.php">Mes candidatures</a></li>
 			  	<li><a id="nav" href="deconnexion.php">Déconnexion</a></li>
-			</ul>
+			</ul>			
 		</header>
 	<div id="layout">
-		<div id="block">
-			<img id="img" src='images/Stage-Water-Logo.png' alt=''>
-		</div>
-	</div>
-	<h1> Voici la liste des stages disponibles à la date du :  <?php echo " " . date("d-m-y"); ?></h1>
-	<div id ="content">
-		<table align="center">
-			<thead>
-				<tr id="tete">
-					<th>Numéro</th>
-					<th>Sujet</th>
-					<th>Contenu</th>
-					<th>Type de stage </th>
-					<th>Niveau requis</th>
-					<th>Date de debut</th>
-					<th>Date de fin</th>
-					<th>Méthode candidature</th>
-					<th>Candidater</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-					$req="SELECT * FROM stage WHERE date_supp >=".$date;
-					$result = $conn->query($req);
-					if ($result->num_rows > 0 )
-					{
-						// affiche les donnees de chaque ligne
-						while ($row = $result->fetch_assoc()) 
-							{
+    	<div id="block">
+    	  <img id="img" src='images/Stage-Water-Logo.png' alt=''>
+    	</div>
+  	</div>
+    <h1 style="margin-top: 50px;">Mes candidatures</h1>
+	<div id="content"> 
+		<form method="POST" action="etudiant.php">
+			<input type="hidden" value="<?php echo $_SESSION['num_etudiant']; ?>"/>
+		</form>
+			<table align="center">
+					<thead>
+						<tr>
+							<th>Numéro stage</th>
+							<th>Sujet</th>
+							<th>Contenu</th>
+							<th>Type</th>
+							<th>Préférence étudiant</th>
+							<th>Date de début</th>
+							<th>Date de fin</th>
+							<th>Méthode de candidature</th>						
+						</tr>
+					</thead>
+					<tbody>
+							   <?php
+								 $req="SELECT id_stage FROM candidater WHERE num_etudiant ='".$_SESSION["num_etudiant"]."'";
+								 $result = $conn->query($req);
+								// affiche les données de chaque ligne
+								while ($row = $result->fetch_assoc()) 
+								{
+									$req2= "SELECT * from stage WHERE id_stage ='".$row["id_stage"]."'";
+									$result2 = $conn->query($req2);
+									while($row2 = $result2->fetch_assoc()){
+									?>
+										<tr>
+										<td><?php echo $row2['id_stage']?></td>
+										<td><?php echo utf8_encode($row2['sujet'])?></td>
+										<td><?php echo utf8_encode($row2['contenu'])?></td>
+										<td><?php echo $row2['type']?></td>
+										<td><?php echo $row2['pref_etu']?></td>
+										<td><?php echo $row2['date_debut']?></td>
+										<td><?php echo $row2['date_fin']?></td>
+										<td><?php echo utf8_encode($row2['methode_cand'])?></td>	
+									 </tr>
+									 <?php
+									}
+								}
 							?>
-									<tr id="stage" >
-										<td><?php echo $row['id_stage']?></td>
-										<td><?php echo utf8_encode($row['sujet'])?></td>
-										<td><?php echo utf8_encode($row['contenu'])?></td>
-										<td><?php echo $row['type']?></td>
-										<td><?php echo $row['pref_etu']?></td>
-										<td><?php echo $row['date_debut']?></td>
-										<td><?php echo $row['date_fin']?></td>
-										<td><?php echo $row['methode_cand']?></td>
-										<td><form method="POST" action="candidature.php">
-											<input type="hidden" name="id_stage" value="<?php echo $row['id_stage'] ;?>"/>
-											<input type="hidden" name="num_etudiant" value="<?php echo $_SESSION["num_etudiant"];?>"/>
-											<input type="submit" value="Candidater"/>
-										</form></td>
-									</tr>
-							<?php
-							}
-					}
-					else 
-					{
-					echo "0 resultats" ;
-					}
-    ?>
-	</tbody>
-	<table>
-</div>	
-<div class="footer-dark">
+								
+					</tbody>
+			</table>
+		</div>
+	
+	<div class="footer-dark">
         <footer>
             <div class="container">
                 <div class="row">
@@ -113,6 +112,8 @@
             </div>
         </footer>
     </div>
+	
     
+
 </body>
 </html>

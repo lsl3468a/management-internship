@@ -1,4 +1,6 @@
 <?php
+// Start the session
+session_start();
 	$servername = "localhost";
 	$username = "root";
 	$password = "root";
@@ -6,99 +8,112 @@
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password,$dbname);
+
 	// Check connection
 	if (!$conn) 
 	{
-    	die("Echec de connexion a la BDD: " . mysqli_connect_error());
+    die("Echec de connexion a la BDD: " . mysqli_connect_error());
 	}
 	
-	if(!isset($_SESSION)){
-		$_SESSION["num_etudiant"]=$_COOKIE["num_etudiant"];
-	}
 ?>	
+
 <!DOCTYPE html>
+
 <html>
 	<head>
-	<meta charset="utf-8">
+
 		<title>
 			Magic Web
-		<?php
+			<?php
 			date_default_timezone_set("America/Guadeloupe");
-			echo " " . date("d-m-j");
-			$date = date("y-m-d");
-		?>  
+			echo " " . date("d-m-y");
+			?>  
 		</title>
-        <link rel='stylesheet' type='text/css' href='site.css'>
-        <script src="https://code.iconify.design/2/2.2.0/iconify.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+	<?php
+	 echo '<link rel="stylesheet" href="site.css">';
+	
+	?>
 	</head>
-	<body>
+<body>
 		<header>
 			<ul>
-				<li><a href="etudiant.php"><img id="univ" src= "univ.png"></a></li>
-				<li><a id="nav" href="etudiant.php">Accueil</a></li>
-				<li><a id="nav" href="candidature_etudiant.php">Mes candidatures</a></li>
-			  	<li><a id="nav" href="deconnexion.php">Déconnexion</a></li>
+				<li><a href="admin.php"><img id="univ" src= "univ.png"></a></li>
+				<li><a id="nav" href="admin.php">Accueil</a></li>
+			    <li><a id="nav" href="admin_Etudiant.php">Gestion Etudiant</a></li>
+			    <li><a id="nav" href="admin_Entreprise.php">Gestion Entreprise</a></li>
+				<li><a id="nav" href="admin_Annonce.php">Gestion Annonce</a></li>
+			    <li><a id="nav" href="deconnexion.php">Deconnexion</a></li>
 			</ul>
 		</header>
-	<div id="layout">
-		<div id="block">
-			<img id="img" src='images/Stage-Water-Logo.png' alt=''>
+		<div id="layout">
+		    <div id="block">
+		      <img id="img" style="width: 95%;"src='images/supp_entreprise.png' alt=''>
+		    </div>
 		</div>
-	</div>
-	<h1> Voici la liste des stages disponibles à la date du :  <?php echo " " . date("d-m-y"); ?></h1>
-	<div id ="content">
-		<table align="center">
-			<thead>
-				<tr id="tete">
-					<th>Numéro</th>
-					<th>Sujet</th>
-					<th>Contenu</th>
-					<th>Type de stage </th>
-					<th>Niveau requis</th>
-					<th>Date de debut</th>
-					<th>Date de fin</th>
-					<th>Méthode candidature</th>
-					<th>Candidater</th>
-				</tr>
-			</thead>
-			<tbody>
-				<?php
-					$req="SELECT * FROM stage WHERE date_supp >=".$date;
-					$result = $conn->query($req);
-					if ($result->num_rows > 0 )
-					{
-						// affiche les donnees de chaque ligne
+    <h1 align="center">Supprimer une Entreprise </h1>
+	
+	 <div id="content"><!--Tableau déroulent-->
+	<table align="center">
+		<thead>
+			<tr>
+			<th>Numéro Entreprise</th>
+			<th>Nom société</th>
+			<th>Adresse</th>
+			<th>Ville</th>
+			<th>Pays</th>
+			<th>Code Postal</th>
+			<th>Numero Siret</th>
+			<th>Suppression</th>
+		</tr>
+	</thead>
+		<tbody>
+					   
+					   <?php
+						 $req="SELECT * FROM `entreprise`";
+						 $result = $conn->query($req);
+						 
+						 if ($result->num_rows > 0 )
+							 {
+						// affiche les données de chaque ligne
 						while ($row = $result->fetch_assoc()) 
-							{
+						{
+							 
 							?>
-									<tr id="stage" >
-										<td><?php echo $row['id_stage']?></td>
-										<td><?php echo utf8_encode($row['sujet'])?></td>
-										<td><?php echo utf8_encode($row['contenu'])?></td>
-										<td><?php echo $row['type']?></td>
-										<td><?php echo $row['pref_etu']?></td>
-										<td><?php echo $row['date_debut']?></td>
-										<td><?php echo $row['date_fin']?></td>
-										<td><?php echo $row['methode_cand']?></td>
-										<td><form method="POST" action="candidature.php">
-											<input type="hidden" name="id_stage" value="<?php echo $row['id_stage'] ;?>"/>
-											<input type="hidden" name="num_etudiant" value="<?php echo $_SESSION["num_etudiant"];?>"/>
-											<input type="submit" value="Candidater"/>
+							
+							 <tr>
+										<td><?php echo $row['id_entreprise']?></td>
+										<td><?php echo $row['nom_societe']?></td>
+										<td><?php echo $row['adresse']?></td>
+										<td><?php echo $row['ville']?></td>
+										<td><?php echo utf8_encode($row['pays'])?></td>
+										<td><?php echo $row['code_postal']?></td>
+										<td><?php echo $row['num_siret']?></td>
+										
+										<td><form action="supprimer.php" method="POST">
+										<input type="hidden" name="id_entreprise" value="<?php echo $row['id_entreprise']; ?>"/>
+										<input  type="submit" value="Supprimer" name="supprimer" />
 										</form></td>
-									</tr>
+										
+										
+								
+										
+							  </tr>
+							  
 							<?php
-							}
-					}
-					else 
-					{
-					echo "0 resultats" ;
-					}
-    ?>
-	</tbody>
-	<table>
-</div>	
+							//echo "<br> id : " . $row[ "id_stage" ]. " - Sujet : " . $row[ "sujet" ]. " - type : " . $row[ "type" ]. " - date de debut : " . $row[ "date_debut" ]. " " . " - date de fin : ". $row[ "date_fin" ] . "<br>" ;
+						}
+							 }
+						else 
+						{
+						echo "0 résultats" ;
+						}
+						 
+					   
+						?>
+						
+			</tbody>
+	</table>
+</div>
 <div class="footer-dark">
         <footer>
             <div class="container">
@@ -113,6 +128,6 @@
             </div>
         </footer>
     </div>
-    
+
 </body>
 </html>

@@ -1,101 +1,250 @@
-html
-{
-  width:auto;
-  height:auto;
-}
-.menu {
-    display: flex;        
-    padding:0; 
-    justify-content: center               
-}
-.menu li {
-    list-style-type: none ;       /* Suppression des puces */
-}
-.menu a {
-    display:block;                /* Transformation en block */
-    min-width: 120px;             /* Largeur minimale des liens */
-    margin: 0.5rem;               /* Marges externes (1 valeurs = 4 directions) */
-    padding: 0.4rem 0;            /* Marges internes (2 valeurs = haut/bas et gauche/droite)*/
-    text-align: center;           /* Centrage du texte */   
-    background-color: blue;    /* Couleur d'arrière-plan */
-    color: #fff;                  /* Couleur du texte */
-    text-decoration: none;        /* Suppression du soulignement */
-    border: 1px solid #fff;       /* Ajout d'une bordure */
-    border-radius: 4px;  
-}
-.menu a:hover {
-  background-color: white;
-  color: black;
-  border-color: black;
+/*html*/
+html{
+  height : auto;
+  width : auto;
+  margin : 0;
+  padding : 0;
 }
 
 /*Header*/
-header
+
+#univ{/*logo université des antilles*/
+    width: 46px;
+    height: 45px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: -6px;
+}
+
+ul
 {
-	width : 100%;
+  background : #fdf5e7;
+  margin : 0;
+  padding : 0;
+  list-style-type: none;
+  overflow: hidden;
+  border-bottom: 8px solid;
+  border-bottom-color: #05057c;
+  font-size: 20px;
 }
-img {
-	height: 200px;
-	width : 500px;
-  margin-left: 650px;
+li {
+  display : inline-block;
 }
-#searchbar{
-    margin-left: 88%;
-    padding:15px;
-    border-radius: 10px;
-}   
-#info{
-	position : absolute;
-	top : 50px;
-	left : 90%;
-	color : white;
+
+li a {
+  display: inline-block;
+  color: #05057c;
+  text-align: center;
+  padding: 12px 28px;
+  text-decoration: none;
+  
 }
-#bouton {
-	padding-left : 750px;
+#nav {
+  left : 100%;
+  float: left;
+  position: relative;
+  justify-content : space-between;
+  }
+#nav:after {
+  content: "";
+  position: absolute;
+  width: 0%;
+  height: 1px;
+  display: block;
+  transition: all 0.3s ease;
+  bottom: 25%;
+}
+#nav:hover::after {
+  width: 70%;
+  height: 2px;
+  background-color: #e4421a;
 }
 /*Body*/
+#layout {
+  background-image: url("images/emploi.png");
+  height : 100%;
+  width: 100%;
+  border-bottom: 8px solid;
+  border-bottom-color: #05057c;
+}
+#block {
+  margin: 0 auto;
+  opacity: 0.8;
+}
+#img {
+  position : relative;
+  display: block;
+  margin: 0px auto;
+  padding : 20px;
+  height: 75%;
+}
 body h1
 {
-	text-align : center;
+  text-align : center;
+  text-decoration : underline;
+  text-decoration-color: #e4421a;
 }
+
 body
 {
-	width : auto;
-	height : auto;
-	background : linear-gradient(blue, white);
+  margin :0;
+  padding : 0;
+  background : #fdf5e7;
 }
 
-table, tr, td{
-
-	padding:25px;
-	border: 2px solid black;
-	color : black;  
-
+#content {
+  width : 100%;
+  height : 100%;
+  text-align : center;
 }
-table {
+table
+{/*Tableau déroulant*/
+  height: 100%;
+  width: 70%;
+  color : black; 
+  padding-left : 10%; 
   border-collapse: collapse;
-  padding-left : 50px;
-  background-color : white;
-  
+  border-color: #05057c;
+
+}
+div {
+  padding-top : 0,1%;
+}
+tr
+{
+  padding:25%;
+  border: 2px solid;
+  border-color : #05057c; 
+}
+
+td
+{
+  padding: 2%;
+  border: 2px solid;
+  border-color :#05057c;
+  color : black;
+  width : 8%;
 }
 
 tbody{
-	display : block;
-	height: 500px;
-	overflow-y : auto;
+  display : block;
+  height: 490px;
+  overflow-y : auto;
 }
-
 
 thead, tbody{
-	display : block;
-
+  display : block;
 }
-
 th{
-	padding : 50px;
+  padding : 1%;
+  width: 7%;
+}
+/*fin tableau déroulant*/
+
+h1{/*titre*/
+  font-style : italic;
+}
+
+#coment
+{
+    margin-top: 2%;
+    padding: 5%;
+    padding-right:55%;
+    
+}
+
+#buttoncandi
+{
+    position: relative;
+    margin-top: 1%;
+    padding : 2%;
 
 }
-td{
-	width : 115px;
+
+.button {
+  background: linear-gradient(to right, #54acdc, #0e5e9c); 
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
+
+
+/*Footer*/
+
+.footer-dark {
+  padding:30px 0;
+  color:#f0f9ff;
+  background-color:#282d32;
+  margin-top : 40px;
+}
+
+.footer-dark h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:16px;
+}
+
+
+@media (max-width:767px) {
+  .footer-dark .item:not(.social) {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+.footer-dark .item.text {
+  margin-bottom:36px;
+}
+
+@media (max-width:767px) {
+  .footer-dark .item.text {
+    margin-bottom:0;
+  }
+}
+
+.footer-dark .item.text p {
+  opacity:0.6;
+  margin-bottom:0;
+}
+
+.footer-dark .item.social {
+  text-align:center;
+}
+
+@media (max-width:991px) {
+  .footer-dark .item.social {
+    text-align:center;
+    margin-top:20px;
+  }
+}
+
+.footer-dark .item.social > a {
+  font-size:20px;
+  width:36px;
+  height:36px;
+  line-height:36px;
+  display:inline-block;
+  text-align:center;
+  margin:0 8px;
+  color:#fff;
+  opacity:0.75;
+}
+
+.footer-dark .item.social > a:hover {
+  opacity:0.9;
+}
+
+.footer-dark .copyright {
+  text-align:center;
+  padding-top:24px;
+  opacity:0.3;
+  font-size:13px;
+  margin-bottom:0;
+}
+
 

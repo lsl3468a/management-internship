@@ -1,9 +1,12 @@
 <?php
-	$_SESSION["id_contact"]=1;
+	include("mail.php");
+	if(!isset($_SESSION["id_contact"])){
+		session_start();
+		$_SESSION["id_contact"] = $_COOKIE["id_contact"];
+	}
 	$user = "root";
 	$pass = "root";
 	$dbname = "gestion_stage";
-	var_dump($_POST);
 	if(!isset($_POST["sujet"]) || strlen($_POST["sujet"])==0){
 		include("ajout_stage.html");
 		echo"Entrez le sujet de stage !";
@@ -34,6 +37,9 @@
 		echo"Entrez la méthode de candidature!";
 		return;
 	}
+	if(strlen($_POST['date_supp'])==0){
+		$_POST['date_supp'] = $_POST['date_fin'];
+	}
 
 	try{
 		//Insertion de la candidature dans le base de données
@@ -48,29 +54,13 @@
 	}
 
 	$req->execute(array($_POST["sujet"], $_POST["contenu"],$_POST["pref"],$_POST["date_debut"], $_POST["date_fin"], $_POST["date_supp"], $_POST["methode"],$_POST["type"],$_SESSION["id_contact"]));
-	echo "Votre annonce a bien été déposée !";
 
-	$expediteur   = 'lasserre.ludivine.ll@gmail.com';
-	$reponse      = $expediteur;
-	$codehtml=
-	    '<html><body>'.
-	    '<h1>Test Email</h1>'.
-	    '<b><u>Ceci est un document HTML</u></b><br>'.
-	    'Avec differentes tailles de caractères et '.
-	    '<font color="red">couleurs</font>'.
-	    '</body></html>';
-	$requete = "SELECT `mail_etudiant` FROM `etudiant` WHERE `inscription_alerte`=1";
-	$resultat = $myPdo -> query($requete);
-	while($row = $resultat->fetch(PDO::FETCH_ASSOC)) :
-			$destinataire = $row["mail_etudiant"];
-			echo $destinataire; 
-			mail($destinataire,'Email au format HTML',$codehtml,"From: $expediteur\r\n". "Reply-To: $reponse\r\n".
-	        "Content-Type: text/html; charset=\"UTF-8\"\r\n");
-
-		
-	endwhile;
-	include("accueil.php");
+	//Envoi d'une alerte
+	$req = "SELECT mail_etudiant FROM etudiant WHERE inscription_alerte = 1";
+	$res = $myPdo -> query($req);
+	while($row = $res->fetch(PDO::FETCH_ASSOC)){
+		mail_alerte($row["mail_etudiant"], $_POST["type"], $_POST["sujet"], $_POST["contenu"]);
+	}
+	include("accueil_entreprise.php");
 	return;
-
-
 ?>

@@ -6,14 +6,11 @@
 
 	// Create connection
 	$conn = new mysqli($servername, $username, $password,$dbname);
+
 	// Check connection
 	if (!$conn) 
 	{
     	die("Echec de connexion a la BDD: " . mysqli_connect_error());
-	}
-	
-	if(!isset($_SESSION)){
-		$_SESSION["num_etudiant"]=$_COOKIE["num_etudiant"];
 	}
 ?>	
 <!DOCTYPE html>
@@ -36,20 +33,22 @@
 	<body>
 		<header>
 			<ul>
-				<li><a href="etudiant.php"><img id="univ" src= "univ.png"></a></li>
-				<li><a id="nav" href="etudiant.php">Accueil</a></li>
-				<li><a id="nav" href="candidature_etudiant.php">Mes candidatures</a></li>
+				<li><a href="index.php"><img id="univ" src= "univ.png"></a></li>
+				<li><a id="nav" href="accueil_entreprise.php">Accueil </a></li>
+				<li><a id="nav" href="ajout_stage.html">Ajouter un stage</a></li>
+				<li><a id="nav" href="candidature_entreprise.php">Nos stages</a></li>
+				<li><a id="nav" href="affichage_candidature.php">Nos candidatures</a></li>
 			  	<li><a id="nav" href="deconnexion.php">Déconnexion</a></li>
 			</ul>
 		</header>
-	<div id="layout">
-		<div id="block">
-			<img id="img" src='images/Stage-Water-Logo.png' alt=''>
+		<div id="layout">
+		    <div id="block">
+		      <img id="img" src='images/Stage-Water-Logo.png' alt=''>
+		    </div>
 		</div>
-	</div>
-	<h1> Voici la liste des stages disponibles à la date du :  <?php echo " " . date("d-m-y"); ?></h1>
-	<div id ="content">
-		<table align="center">
+<h1> Voici la liste des stages :</h1>
+<div>
+	<table align="center">
 			<thead>
 				<tr id="tete">
 					<th>Numéro</th>
@@ -60,7 +59,6 @@
 					<th>Date de debut</th>
 					<th>Date de fin</th>
 					<th>Méthode candidature</th>
-					<th>Candidater</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -82,18 +80,9 @@
 										<td><?php echo $row['date_debut']?></td>
 										<td><?php echo $row['date_fin']?></td>
 										<td><?php echo $row['methode_cand']?></td>
-										<td><form method="POST" action="candidature.php">
-											<input type="hidden" name="id_stage" value="<?php echo $row['id_stage'] ;?>"/>
-											<input type="hidden" name="num_etudiant" value="<?php echo $_SESSION["num_etudiant"];?>"/>
-											<input type="submit" value="Candidater"/>
-										</form></td>
 									</tr>
 							<?php
 							}
-					}
-					else 
-					{
-					echo "0 resultats" ;
 					}
     ?>
 	</tbody>
@@ -113,6 +102,5 @@
             </div>
         </footer>
     </div>
-    
 </body>
 </html>
