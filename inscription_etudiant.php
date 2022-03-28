@@ -25,7 +25,7 @@
             <div id="block">
               <img id="img" src='images/Stage-Water-Logo.png' alt=''>
             </div>
-        </div>
+    </div>
     <div class="container-fluid">
     <div class="row">
 		<div class="col-md-12">

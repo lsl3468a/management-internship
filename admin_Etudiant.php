@@ -77,15 +77,15 @@ echo " " . date("d-m-y");
 		?>
 		
 		 <tr>
-          <td><?php echo $row['num_etudiant']?></td>
-          <td><?php echo $row['nom_etudiant']?></td>
-					<td><?php echo $row['prenom_etudiant']?></td>
-					<td><?php echo $row['mail_etudiant']?></td>
-					<td><?php echo $row['inscription_alerte']?></td>
-					<td><form action="supprimer.php" method="POST">
-					<input type="hidden" name="num_etudiant" value="<?php echo $row['num_etudiant']; ?>"/>
-					<input  type="submit" value="Supprimer" name="supprimer" />
-					</form></td>
+          	<td><?php echo $row['num_etudiant']?></td>
+          	<td><?php echo utf8_encode($row['nom_etudiant'])?></td>
+			<td><?php echo utf8_encode($row['prenom_etudiant'])?></td>
+			<td><?php echo utf8_encode($row['mail_etudiant'])?></td>
+			<td><?php echo $row['inscription_alerte']?></td>
+			<td><form action="supprimer.php" method="POST">
+				<input type="hidden" name="num_etudiant" value="<?php echo $row['num_etudiant']; ?>"/>
+				<input  type="submit" value="Supprimer" name="supprimer" />
+			</form></td>
           </tr>
 		 
 		<?php

@@ -83,8 +83,8 @@ if(!isset($_SESSION)){
 										<td><?php echo $row2['id_stage']?></td>
 										<td><?php echo utf8_encode($row2['sujet'])?></td>
 										<td><?php echo utf8_encode($row2['contenu'])?></td>
-										<td><?php echo $row2['type']?></td>
-										<td><?php echo $row2['pref_etu']?></td>
+										<td><?php echo utf8_encode($row2['type'])?></td>
+										<td><?php echo utf8_encode($row2['pref_etu'])?></td>
 										<td><?php echo $row2['date_debut']?></td>
 										<td><?php echo $row2['date_fin']?></td>
 										<td><?php echo utf8_encode($row2['methode_cand'])?></td>	

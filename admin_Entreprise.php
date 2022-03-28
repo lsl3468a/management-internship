@@ -82,9 +82,9 @@ session_start();
 							
 							 <tr>
 										<td><?php echo $row['id_entreprise']?></td>
-										<td><?php echo $row['nom_societe']?></td>
-										<td><?php echo $row['adresse']?></td>
-										<td><?php echo $row['ville']?></td>
+										<td><?php echo utf8_encode($row['nom_societe'])?></td>
+										<td><?php echo utf8_encode($row['adresse'])?></td>
+										<td><?php echo utf8_encode($row['ville'])?></td>
 										<td><?php echo utf8_encode($row['pays'])?></td>
 										<td><?php echo $row['code_postal']?></td>
 										<td><?php echo $row['num_siret']?></td>

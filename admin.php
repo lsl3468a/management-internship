@@ -81,11 +81,11 @@ echo " " . date("d-m-y");
 										<td><?php echo $row['id_stage']?></td>
 										<td><?php echo utf8_encode($row['sujet'])?></td>
 										<td><?php echo utf8_encode($row['contenu'])?></td>
-										<td><?php echo $row['type']?></td>
-										<td><?php echo $row['pref_etu']?></td>
+										<td><?php echo utf8_encode($row['type'])?></td>
+										<td><?php echo utf8_encode($row['pref_etu'])?></td>
 										<td><?php echo $row['date_debut']?></td>
 										<td><?php echo $row['date_fin']?></td>
-										<td><?php echo $row['methode_cand']?></td>
+										<td><?php echo utf8_encode($row['methode_cand'])?></td>
 										<td><form action="supprimer.php" method="POST">
 										<input type="hidden" name="id_stage" value="<?php echo $row['id_stage']; ?>"/>
 										<input  type="submit" value="Supprimer" name="supprimer" />
