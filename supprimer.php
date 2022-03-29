@@ -19,6 +19,8 @@
 	if (isset($_POST['id_stage']))
 	{
 		$id_stage = $_POST["id_stage"];
+		$req1 = "DELETE FROM `stage`WHERE `id_stage` ='".$id_stage."'";
+		$result = $conn->query($req1);
 		$req="DELETE FROM `stage` WHERE `id_stage`='".$id_stage."'";
 		$result = $conn->query($req);
 		include("admin_Annonce.php");

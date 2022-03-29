@@ -59,7 +59,8 @@
 							<th>Préférence étudiant</th>
 							<th>Date de début</th>
 							<th>Date de fin</th>
-							<th>Méthode de candidature</th>						
+							<th>Méthode de candidature</th>
+							<th> Suppression </th>				
 						</tr>
 					</thead>
 					<tbody>
@@ -76,7 +77,11 @@
 									<td><?php echo utf8_encode($row['pref_etu'])?></td>
 									<td><?php echo $row['date_debut']?></td>
 									<td><?php echo $row['date_fin']?></td>
-									<td><?php echo utf8_encode($row['methode_cand'])?></td>	
+									<td><?php echo utf8_encode($row['methode_cand'])?></td>
+									<td><form action="supprimer_annonce.php" method="POST">
+										<input type="hidden" name="id_stage" value="<?php echo $row['id_stage']; ?>"/>
+										<input  type="submit" value="Supprimer" name="supprimer" />
+										</form></td>		
 									</tr>
 									 <?php
 								}

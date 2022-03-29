@@ -81,7 +81,7 @@ function mail_alerte($to, $type, $sujet, $contenu){
 		Il s\'agit de : '.$type.' <br>
 		'.$sujet.' <br>
 		Contenu du stage : '.$contenu.' <br>
-		Pour plus de détails, rendez-vous sur le site web ! <br> <br>
+		Pour plus de détails, rendez-vous sur le <a href="localhost/management-internship/index.php">site web</a> ! <br> <br>
 		Toute l\'équipe Magic Web !
 
 		</div>
